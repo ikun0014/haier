@@ -17,8 +17,8 @@ from .device import HaierDevice
 
 _LOGGER = logging.getLogger(__name__)
 
-APP_ID = 'MB-SHEZJAPPWXXCX-0000'
-APP_KEY = '79ce99cc7f9804663939676031b8a427'
+APP_ID = 'MB-UZHSH-0000'
+APP_KEY = 'f50c76fbc8271d361e1f6b5973f54585'
 
 REFRESH_TOKEN_API = 'https://zj.haier.net/api-gw/oauthserver/account/v1/refreshToken'
 GET_USER_INFO_API = 'https://account-api.haier.net/v2/haier/userinfo'
