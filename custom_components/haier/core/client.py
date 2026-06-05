@@ -110,6 +110,7 @@ class HaierClient:
         async with self._session.post(url=REFRESH_TOKEN_API, headers=headers, json=payload) as response:
             content = await response.json(content_type=None)
             self._assert_response_successful(content)
+            _LOGGER.debug('Refresh Token: {}'.format(content))
 
             token_info = content['data']['tokenInfo']
             return TokenInfo(
@@ -129,6 +130,7 @@ class HaierClient:
         }
         async with self._session.get(url=GET_USER_INFO_API, headers=headers) as response:
             content = await response.json(content_type=None)
+            _LOGGER.debug('User Info: {}'.format(content))
             if 'error_description' in content:
                 raise HaierClientException('Error getting user info, error: {}'.format(content['error_description']))
 
@@ -146,6 +148,7 @@ class HaierClient:
         headers = await self._generate_common_headers(GET_DEVICES_API)
         async with self._session.get(url=GET_DEVICES_API, headers=headers) as response:
             content = await response.json(content_type=None)
+            _LOGGER.debug('Device info: {}'.format(content))
             self._assert_response_successful(content)
 
             devices = []
